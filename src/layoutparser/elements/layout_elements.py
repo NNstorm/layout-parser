@@ -763,7 +763,7 @@ class Rectangle(BaseCoordElement):
 
     def crop_image(self, image):
         x_1, y_1, x_2, y_2 = self.coordinates
-        return image[int(y_1) : int(y_2), int(x_1) : int(x_2)]
+        return image.crop((x_1, y_1, x_2, y_2))
 
     def to_interval(self, axis, **kwargs):
         if axis == "x":

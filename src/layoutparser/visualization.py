@@ -389,8 +389,8 @@ def draw_box(
                 text = str(ele.type) if not text else text + ": " + str(ele.type)
 
             start_x, start_y = ele.coordinates[:2]
-            text_w, text_h = font_obj.getsize(text)
-
+            text_w = font_obj.getlength(text)
+            text_h = 20
             text_box_object = Rectangle(
                 start_x, start_y, start_x + text_w, start_y + text_h
             )
