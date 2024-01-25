@@ -153,7 +153,9 @@ class PaddleModelURLHandler(HTTPURLHandler):
             dirname = os.path.join(
                 get_cache_dir(cache_dir), os.path.dirname(parsed_url.path.lstrip("/"))
             )
-            filename = path.split("/")[-1]
+            # detectron2 weight download FIX
+            filename = parsed_url.path.split("/")[-1]
+            #filename = path.split("/")[-1]
             if len(filename) > self.MAX_FILENAME_LEN:
                 filename = filename[:100] + "_" + uuid.uuid4().hex
 
